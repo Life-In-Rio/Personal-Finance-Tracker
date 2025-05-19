@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import FinanceSummary from './components/FinanceSummary';
-import TransactionForm from './components/TransactionForm';
-import TransactionList from './components/TransactionList';
-
+import FinanceSummary from './financesummary.jsx';
+import TransactionForm from './TransactionForm.jsx';
+import TransactionList from './TransactionList.jsx';
 function App() {
   const [transactions, setTransactions] = useState(() => {
     const saved = localStorage.getItem("transactions");
@@ -22,8 +21,8 @@ function App() {
   };
 
   return (
-    <div className="p-4 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Personal Finance Tracker</h1>
+    <div className="p-4 max-w-2xl mx-auto mt-10">
+      <h1 className="text-2xl font-bold mb-4 ">Personal Finance Tracker</h1>
       <FinanceSummary transactions={transactions} />
       <TransactionForm onAdd={addTransaction} />
       <TransactionList transactions={transactions} onDelete={deleteTransaction} />

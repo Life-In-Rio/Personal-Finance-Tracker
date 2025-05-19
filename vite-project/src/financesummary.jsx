@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FinanceSummary = ({ transactions }) => {
   const income = transactions
     .filter(t => t.type === 'income')
@@ -16,11 +14,19 @@ const FinanceSummary = ({ transactions }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow p-4 mb-4">
-      <h2 className="text-xl font-semibold mb-2">Ringkasan Keuangan</h2>
-      <p>Pemasukan: <strong className="text-green-600">{formatCurrency(income)}</strong></p>
-      <p>Pengeluaran: <strong className="text-red-600">{formatCurrency(expense)}</strong></p>
-      <p>Saldo Akhir: <strong className="text-blue-600">{formatCurrency(balance)}</strong></p>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div className="bg-green-100 p-4 rounded-2xl shadow text-green-800">
+        <h3 className="text-lg font-semibold">Total Pemasukan</h3>
+        <p className="text-xl font-bold">{formatCurrency(income)}</p>
+      </div>
+      <div className="bg-red-100 p-4 rounded-2xl shadow text-red-800">
+        <h3 className="text-lg font-semibold">Total Pengeluaran</h3>
+        <p className="text-xl font-bold">{formatCurrency(expense)}</p>
+      </div>
+      <div className="bg-blue-100 p-4 rounded-2xl shadow text-blue-800">
+        <h3 className="text-lg font-semibold">Saldo Akhir</h3>
+        <p className="text-xl font-bold">{formatCurrency(balance)}</p>
+      </div>
     </div>
   );
 };
